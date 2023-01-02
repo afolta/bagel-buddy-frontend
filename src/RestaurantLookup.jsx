@@ -10,7 +10,8 @@ export function RestaurantLookup() {
     axios
       .post("http://localhost:3000/restaurants-lookup", params)
       .then((response) => {
-        window.location.href = "/restaurant-lookup-response";
+        console.log(response.data);
+        //window.location.href = "/";
       })
       .catch((error) => {
         setErrors(error.response.data.errors ? error.response.data.errors : ["Must Login!"]);

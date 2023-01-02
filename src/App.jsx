@@ -4,6 +4,7 @@ import { Home } from "./Home";
 import { UserShow } from "./UserShow";
 import { RestaurantLookup } from "./RestaurantLookup";
 import { Signup } from "./Signup";
+import { Login } from "./Login";
 import { Footer } from "./Footer";
 
 function App() {
@@ -14,6 +15,7 @@ function App() {
         <Routes>
           <Route path="/" element={<Home />} />
           <Route path="/signup" element={<Signup />} />
+          <Route path="/login" element={<Login />} />
           <Route path="/restaurant-lookup" element={<RestaurantLookup />} />
           <Route path="/user" element={<UserShow />} />
         </Routes>
