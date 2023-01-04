@@ -1,5 +1,6 @@
 import axios from "axios";
 import { useState, useEffect } from "react";
+import { LogoutLink } from "./Logout";
 import { UserShow } from "./UserShow";
 import { RestaurantLookup } from "./RestaurantLookup";
 import mapboxgl from "mapbox-gl";
@@ -35,7 +36,7 @@ export function Home() {
         const map = new mapboxgl.Map({
           container: "map", // container ID
           style: "mapbox://styles/mapbox/light-v10", // style URL
-          center: [bagelLover.longitude, bagelLover.latitude], // starting position [lng, lat]
+          center: [bagelLover.longitude, bagelLover.latitude], // starting position
           zoom: 12, // starting zoom
         });
 
@@ -44,7 +45,6 @@ export function Home() {
             `<h2>${place.name}</h3>
             <p>Address: ${place.address}</p>`
           );
-          //setText(place.name, place.address);
           let marker = new mapboxgl.Marker().setLngLat([place.longitude, place.latitude]).setPopup(popup).addTo(map);
         });
       })
@@ -57,6 +57,7 @@ export function Home() {
 
   return (
     <div>
+      <LogoutLink />
       <h1>Welcome to Bagel Buddy!</h1>
       <UserShow user={user} />
       <div id="map"></div>
