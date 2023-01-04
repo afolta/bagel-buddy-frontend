@@ -3,7 +3,7 @@ export function RestaurantLookup(props) {
     <div id="restaurant-lookup">
       <h1>All Restaurants</h1>
       {props.restaurants.map((restaurant) => (
-        <div key={restaurant.id} className="restaurant">
+        <div key={restaurant.place_id} className="restaurant">
           <h2>{restaurant.name}</h2>
           <p>Address: {restaurant.address}</p>
           <p>Review: {restaurant.rating}</p>
