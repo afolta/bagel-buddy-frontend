@@ -5,3 +5,12 @@ html {
 #map {
   height: 600px;
   }
+
+.marker {
+  background-image: url('https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Ftse1.mm.bing.net%2Fth%3Fid%3DOIP.Rs707H6LudMgQmdvecfyrAHaHa%26pid%3DApi&f=1&ipt=174e1d65a41dfccf5aa8eecdd716700365c1c6d2540dbcbeadb7340b5dd078d4&ipo=images');
+  background-size: cover;
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;
+  cursor: pointer;
+}

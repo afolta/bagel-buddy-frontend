@@ -1,6 +1,5 @@
 import axios from "axios";
 import { useState, useEffect } from "react";
-import { LogoutLink } from "./Logout";
 import { UserShow } from "./UserShow";
 import { RestaurantLookup } from "./RestaurantLookup";
 import mapboxgl from "mapbox-gl";
@@ -35,7 +34,7 @@ export function Home() {
           "pk.eyJ1IjoiZm9sdGFhcyIsImEiOiJjajBiNTRwZXEwMnVlMndvMjZnMWYyZzkxIn0.wMplMNqPeI1kNVVfR9RvVg";
         const map = new mapboxgl.Map({
           container: "map", // container ID
-          style: "mapbox://styles/mapbox/light-v10", // style URL
+          style: "mapbox://styles/mapbox/streets-v11", // style URL
           center: [bagelLover.longitude, bagelLover.latitude], // starting position
           zoom: 12, // starting zoom
         });
@@ -45,19 +44,29 @@ export function Home() {
             `<h2>${place.name}</h3>
             <p>Address: ${place.address}</p>`
           );
-          let marker = new mapboxgl.Marker().setLngLat([place.longitude, place.latitude]).setPopup(popup).addTo(map);
+
+          const el = document.createElement("div");
+          el.className = "marker";
+
+          let marker = new mapboxgl.Marker(el).setLngLat([place.longitude, place.latitude]).setPopup(popup);
+
+          marker.addTo(map);
         });
       })
-      .catch((error) => {
-        //setErrors(error.response.data.errors ? error.response.data.errors : ["Must Login!"]);
-      });
+      .catch((error) => {});
   };
 
   useEffect(handleUserShow, []);
 
+  const myStyle = {
+    color: "white",
+    backgroundColor: "DodgerBlue",
+    padding: "10px",
+    fontFamily: "Sans-Serif",
+  };
+
   return (
     <div>
-      <LogoutLink />
       <h1>Welcome to Bagel Buddy!</h1>
       <UserShow user={user} />
       <div id="map"></div>
