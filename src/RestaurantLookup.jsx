@@ -1,7 +1,7 @@
 export function RestaurantLookup(props) {
   return (
     <div id="restaurant-lookup">
-      <h1>All Restaurants</h1>
+      <h1>Bagel Shops</h1>
       {props.restaurants.map((restaurant) => (
         <div key={restaurant.place_id} className="restaurant">
           <h2>{restaurant.name}</h2>

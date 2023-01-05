@@ -2,8 +2,15 @@ html {
   scroll-behavior: smooth;
 }
 
+#root {
+  background-image: url(./assets/memphis-mini.png);
+}
+
 #map {
   height: 600px;
+  width: 600px;
+  margin-left: auto;
+  margin-right: auto;
   }
 
 .marker {
