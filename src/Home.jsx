@@ -3,23 +3,47 @@ import { useState, useEffect } from "react";
 import { UserShow } from "./UserShow";
 import { RestaurantLookup } from "./RestaurantLookup";
 import mapboxgl from "mapbox-gl";
+import { Modal } from "./Modal";
+import { RestaurantShow } from "./RestaurantShow";
 
 export function Home() {
   const [user, setUser] = useState({});
   const [restaurants, setRestaurants] = useState([]);
+  const [currentRestaurant, setCurrentRestaurant] = useState({});
+  const [isRestaurantShowModalVisible, setIsRestaurantShowModalVisible] = useState(false);
+  const [data, setData] = useState("");
 
   const handleUserShow = () => {
     const userId = localStorage.getItem("user_id");
 
-    axios.get(`http://localhost:3000/users/${userId}`).then((response) => {
-      console.log(response.data);
-      setUser(response.data);
+    axios
+      .get(`http://localhost:3000/users/${userId}`)
+      .then((response) => {
+        console.log(response.data);
+        setUser(response.data);
 
-      handleResaurantLookup(response.data);
-    });
+        handleRestaurantLookup(response.data);
+      })
+      .catch((error) => {});
   };
 
-  const handleResaurantLookup = (bagelLover) => {
+  const handleShowRestaurant = (restaurant) => {
+    setCurrentRestaurant(restaurant);
+    console.log(restaurant);
+
+    axios
+      .post("http://localhost:3000/reviews", {
+        place_id: restaurant.place_id,
+      })
+      .then((response) => {
+        console.log(response.data);
+        setCurrentRestaurant(response.data);
+        setIsRestaurantShowModalVisible(true);
+      })
+      .catch((error) => {});
+  };
+
+  const handleRestaurantLookup = (bagelLover) => {
     console.log(bagelLover);
     axios
       .post("http://localhost:3000/restaurants-lookup", {
@@ -58,6 +82,10 @@ export function Home() {
 
   useEffect(handleUserShow, []);
 
+  const handleHideRestaurant = () => {
+    setIsRestaurantShowModalVisible(false);
+  };
+
   const myStyle = {
     color: "white",
     backgroundColor: "DodgerBlue",
@@ -70,7 +98,10 @@ export function Home() {
       <h1>Welcome to Bagel Buddy!</h1>
       <UserShow user={user} />
       <div id="map"></div>
-      <RestaurantLookup restaurants={restaurants} user={user} />
+      <RestaurantLookup restaurants={restaurants} user={user} onSelectRestaurant={handleShowRestaurant} />
+      <Modal show={isRestaurantShowModalVisible} onClose={handleHideRestaurant}>
+        <RestaurantShow restaurant={currentRestaurant} />
+      </Modal>
     </div>
   );
 }
