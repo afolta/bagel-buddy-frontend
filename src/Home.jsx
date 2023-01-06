@@ -104,13 +104,15 @@ export function Home() {
   const handleShowTrips = (restaurant) => {
     setCurrentRestaurant(restaurant);
     console.log(restaurant);
+    localStorage.setItem("place_id", restaurant.place_id);
 
     axios
-      .get("http://localhost:3000/trips")
+      .get(`http://localhost:3000/trips/${restaurant.place_id}`)
       .then((response) => {
         console.log(response.data);
         setCurrentTrips(response.data);
         setIsTripShowModalVisible(true);
+        setCurrentRestaurant(restaurant);
       })
       .catch((error) => {});
   };
@@ -135,7 +137,7 @@ export function Home() {
         <ReviewsShow reviews={currentReviews} />
       </Modal>
       <Modal show={isTripShowModalVisible} onClose={handleHideTrip}>
-        <TripsShow trips={currentTrips} />
+        <TripsShow trips={currentTrips} restaurant={currentRestaurant} />
       </Modal>
     </div>
   );
