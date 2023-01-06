@@ -6,16 +6,12 @@ export function UserShow(props) {
     const params = new FormData(event.target);
     props.onUpdateLocation(props.user.id, params);
     event.target.reset();
-    //window.location.reload(false);
   };
 
   return (
     <div id="users-show">
-      <h2>Bagel Lover Info</h2>
-      <div key={props.user.id} className="users">
-        <p>{props.user.name}</p>
-      </div>
-      <h2>Edit Location</h2>
+      <div key={props.user.id} className="users"></div>
+      <h2>{props.user.name}'s Location</h2>
       <form onSubmit={handleSubmit}>
         <div>
           Address: <input defaultValue={props.user.address} name="address" className="form-control" type="text" />
