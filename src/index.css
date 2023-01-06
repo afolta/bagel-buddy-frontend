@@ -6,6 +6,10 @@ html {
   background-image: url(./assets/memphis-mini.png);
 }
 
+#title {
+  text-align: center;
+}
+
 #map {
   height: 600px;
   width: 600px;
@@ -24,10 +28,22 @@ html {
   cursor: pointer;
 }
 
+.user-location {
+  width: 40px;
+  height: 40px;
+}
+
+#users-show {
+  width: 200px;
+  height: 40px;
+  position: absolute;
+  left: 50px;
+}
+
 .logo {
   background-image: url(./assets/bagel.png);
   position: absolute;
-  right: 0px;
+  right: 20px;
   width: 100px;
   height: 100px;
 }

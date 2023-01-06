@@ -109,7 +109,7 @@ export function Home() {
   return (
     <div>
       <img src="/src/assets/bagel.png" alt="" className="logo" />
-      <h1>Welcome to Bagel Buddy!</h1>
+      <h1 id="title"> Welcome to Bagel Buddy!</h1>
       <UserShow user={user} onUpdateLocation={handleUpdateLocation} />
       <div id="map"></div>
       <RestaurantLookup restaurants={restaurants} user={user} onSelectRestaurant={handleShowRestaurant} />

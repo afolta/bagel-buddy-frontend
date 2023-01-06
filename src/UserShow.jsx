@@ -11,7 +11,10 @@ export function UserShow(props) {
   return (
     <div id="users-show">
       <div key={props.user.id} className="users"></div>
-      <h2>{props.user.name}'s Location</h2>
+      <h2>
+        {props.user.name}'s Location{" "}
+        <img src="/src/assets/map-location-dot-solid.svg" alt="" className="user-location" />
+      </h2>
       <form onSubmit={handleSubmit}>
         <div>
           Address: <input defaultValue={props.user.address} name="address" className="form-control" type="text" />
