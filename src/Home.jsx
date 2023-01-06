@@ -5,13 +5,16 @@ import { RestaurantLookup } from "./RestaurantLookup";
 import mapboxgl from "mapbox-gl";
 import { Modal } from "./Modal";
 import { ReviewsShow } from "./ReviewsShow";
+import { TripsShow } from "./TripsShow";
 
 export function Home() {
   const [user, setUser] = useState({});
   const [restaurants, setRestaurants] = useState([]);
   const [currentRestaurant, setCurrentRestaurant] = useState({});
   const [currentReviews, setCurrentReviews] = useState({});
+  const [currentTrips, setCurrentTrips] = useState({});
   const [isReviewShowModalVisible, setIsReviewShowModalVisible] = useState(false);
+  const [isTripShowModalVisible, setIsTripShowModalVisible] = useState(false);
 
   const handleUserShow = () => {
     const userId = localStorage.getItem("user_id");
@@ -49,7 +52,6 @@ export function Home() {
       .then((response) => {
         console.log(response.data);
         setCurrentReviews(response.data);
-        console.log(currentReviews);
         setIsReviewShowModalVisible(true);
       })
       .catch((error) => {});
@@ -99,11 +101,22 @@ export function Home() {
     setIsReviewShowModalVisible(false);
   };
 
-  const myStyle = {
-    color: "white",
-    backgroundColor: "DodgerBlue",
-    padding: "10px",
-    fontFamily: "Sans-Serif",
+  const handleShowTrips = (restaurant) => {
+    setCurrentRestaurant(restaurant);
+    console.log(restaurant);
+
+    axios
+      .get("http://localhost:3000/trips")
+      .then((response) => {
+        console.log(response.data);
+        setCurrentTrips(response.data);
+        setIsTripShowModalVisible(true);
+      })
+      .catch((error) => {});
+  };
+
+  const handleHideTrip = () => {
+    setIsTripShowModalVisible(false);
   };
 
   return (
@@ -112,9 +125,17 @@ export function Home() {
       <h1 id="title"> Welcome to Bagel Buddy!</h1>
       <UserShow user={user} onUpdateLocation={handleUpdateLocation} />
       <div id="map"></div>
-      <RestaurantLookup restaurants={restaurants} user={user} onSelectRestaurant={handleShowRestaurant} />
+      <RestaurantLookup
+        restaurants={restaurants}
+        user={user}
+        onSelectRestaurant={handleShowRestaurant}
+        onSelectTrip={handleShowTrips}
+      />
       <Modal show={isReviewShowModalVisible} onClose={handleHideRestaurant}>
         <ReviewsShow reviews={currentReviews} />
+      </Modal>
+      <Modal show={isTripShowModalVisible} onClose={handleHideTrip}>
+        <TripsShow trips={currentTrips} />
       </Modal>
     </div>
   );

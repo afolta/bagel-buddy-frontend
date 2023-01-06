@@ -53,3 +53,16 @@ html {
   border-radius: 5px;
   padding: 10px;
 }
+
+.trips-border {
+  border: 2px solid grey;
+  border-radius: 5px;
+  padding: 10px;
+}
+
+#notes{
+  position: absolute;
+  left: 300px;
+  width: 90px;
+  height: 90px;
+}

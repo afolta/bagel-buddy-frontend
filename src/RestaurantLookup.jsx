@@ -13,6 +13,9 @@ export function RestaurantLookup(props) {
               <img src="/src/assets/message-draw.svg" alt="" />
               Reviews
             </button>
+            <button id="notes" class="btn btn-info" onClick={() => props.onSelectTrip(restaurant)}>
+              Notes
+            </button>
           </div>
         </div>
       ))}

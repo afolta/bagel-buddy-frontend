@@ -28,7 +28,8 @@ export function UserShow(props) {
         <div>
           Zip: <input defaultValue={props.user.zip} name="zip" className="form-control" type="text" />
         </div>
-        <button className="btn btn-primary mt-3" type="submit">
+        <br></br>
+        <button class="btn btn-success" type="submit">
           Update Address
         </button>
       </form>
