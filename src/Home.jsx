@@ -78,7 +78,8 @@ export function Home() {
         response.data.forEach((place) => {
           let popup = new mapboxgl.Popup({ offset: 30 }).setHTML(
             `<h2>${place.name}</h3>
-            <p>Address: ${place.address}</p>`
+            <p>Address: ${place.address}</p>
+            <p>Distance: ${place.distance}</p>`
           );
 
           const el = document.createElement("div");
