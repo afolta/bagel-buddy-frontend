@@ -4,14 +4,14 @@ import { UserShow } from "./UserShow";
 import { RestaurantLookup } from "./RestaurantLookup";
 import mapboxgl from "mapbox-gl";
 import { Modal } from "./Modal";
-import { RestaurantShow } from "./RestaurantShow";
+import { ReviewsShow } from "./ReviewsShow";
 
 export function Home() {
   const [user, setUser] = useState({});
   const [restaurants, setRestaurants] = useState([]);
   const [currentRestaurant, setCurrentRestaurant] = useState({});
-  const [isRestaurantShowModalVisible, setIsRestaurantShowModalVisible] = useState(false);
-  const [data, setData] = useState("");
+  const [currentReviews, setCurrentReviews] = useState({});
+  const [isReviewShowModalVisible, setIsReviewShowModalVisible] = useState(false);
 
   const handleUserShow = () => {
     const userId = localStorage.getItem("user_id");
@@ -37,8 +37,9 @@ export function Home() {
       })
       .then((response) => {
         console.log(response.data);
-        setCurrentRestaurant(response.data);
-        setIsRestaurantShowModalVisible(true);
+        setCurrentReviews(response.data);
+        console.log(currentReviews);
+        setIsReviewShowModalVisible(true);
       })
       .catch((error) => {});
   };
@@ -83,7 +84,7 @@ export function Home() {
   useEffect(handleUserShow, []);
 
   const handleHideRestaurant = () => {
-    setIsRestaurantShowModalVisible(false);
+    setIsReviewShowModalVisible(false);
   };
 
   const myStyle = {
@@ -99,8 +100,8 @@ export function Home() {
       <UserShow user={user} />
       <div id="map"></div>
       <RestaurantLookup restaurants={restaurants} user={user} onSelectRestaurant={handleShowRestaurant} />
-      <Modal show={isRestaurantShowModalVisible} onClose={handleHideRestaurant}>
-        <RestaurantShow restaurant={currentRestaurant} />
+      <Modal show={isReviewShowModalVisible} onClose={handleHideRestaurant}>
+        <ReviewsShow reviews={currentReviews} />
       </Modal>
     </div>
   );

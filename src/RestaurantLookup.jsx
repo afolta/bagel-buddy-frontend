@@ -8,7 +8,7 @@ export function RestaurantLookup(props) {
           <p>Address: {restaurant.address}</p>
           <p>Review: {restaurant.rating}</p>
           <button className="btn btn-secondary" onClick={() => props.onSelectRestaurant(restaurant)}>
-            More Info
+            Reviews
           </button>
         </div>
       ))}
