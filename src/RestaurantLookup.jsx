@@ -10,6 +10,7 @@ export function RestaurantLookup(props) {
             <p>Distance: {restaurant.distance} miles</p>
             <p>Review: {restaurant.rating}</p>
             <button className="btn btn-secondary" onClick={() => props.onSelectRestaurant(restaurant)}>
+              <img src="/src/assets/message-draw.svg" alt="" />
               Reviews
             </button>
           </div>
