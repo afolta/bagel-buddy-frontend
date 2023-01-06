@@ -27,6 +27,17 @@ export function Home() {
       .catch((error) => {});
   };
 
+  const handleUpdateLocation = (id, params) => {
+    axios
+      .patch("http://localhost:3000/users/" + id, params)
+      .then((response) => {
+        console.log(response.data);
+        setUser(response.data);
+        window.location.reload(false);
+      })
+      .catch((error) => {});
+  };
+
   const handleShowRestaurant = (restaurant) => {
     setCurrentRestaurant(restaurant);
     console.log(restaurant);
@@ -97,7 +108,7 @@ export function Home() {
   return (
     <div>
       <h1>Welcome to Bagel Buddy!</h1>
-      <UserShow user={user} />
+      <UserShow user={user} onUpdateLocation={handleUpdateLocation} />
       <div id="map"></div>
       <RestaurantLookup restaurants={restaurants} user={user} onSelectRestaurant={handleShowRestaurant} />
       <Modal show={isReviewShowModalVisible} onClose={handleHideRestaurant}>
