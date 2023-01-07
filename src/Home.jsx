@@ -74,7 +74,7 @@ export function Home() {
           container: "map", // container ID
           style: "mapbox://styles/mapbox/streets-v11", // style URL
           center: [bagelLover.longitude, bagelLover.latitude], // starting position
-          zoom: 12, // starting zoom
+          zoom: 13, // starting zoom
         });
 
         response.data.forEach((place) => {
@@ -125,14 +125,18 @@ export function Home() {
     <div>
       <img src="/src/assets/bagel.png" alt="" className="logo" />
       <h1 id="title"> Welcome to Bagel Buddy!</h1>
-      <UserShow user={user} onUpdateLocation={handleUpdateLocation} />
+      <div id="users-show">
+        <UserShow user={user} onUpdateLocation={handleUpdateLocation} />
+      </div>
       <div id="map"></div>
-      <RestaurantLookup
-        restaurants={restaurants}
-        user={user}
-        onSelectRestaurant={handleShowRestaurant}
-        onSelectTrip={handleShowTrips}
-      />
+      <div id="restaurant-lookup">
+        <RestaurantLookup
+          restaurants={restaurants}
+          user={user}
+          onSelectRestaurant={handleShowRestaurant}
+          onSelectTrip={handleShowTrips}
+        />
+      </div>
       <Modal show={isReviewShowModalVisible} onClose={handleHideRestaurant}>
         <ReviewsShow reviews={currentReviews} />
       </Modal>

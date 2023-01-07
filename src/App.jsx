@@ -5,7 +5,6 @@ import { UserShow } from "./UserShow";
 import { RestaurantLookup } from "./RestaurantLookup";
 import { Signup } from "./Signup";
 import { Login } from "./Login";
-import { Footer } from "./Footer";
 
 function App() {
   return (
@@ -20,7 +19,6 @@ function App() {
           <Route path="/user" element={<UserShow />} />
         </Routes>
       </div>
-      <Footer />
     </BrowserRouter>
   );
 }

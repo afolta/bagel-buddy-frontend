@@ -11,12 +11,15 @@ html {
 }
 
 #map {
-  height: 600px;
-  width: 600px;
-  margin-left: auto;
-  margin-right: auto;
+  height: 700px;
+  width: 800px;
+  position: absolute;
+  left: 30px;
+  /* margin-left: auto;
+  margin-right: auto; */
   border: 2px solid black;
   border-radius: 5px;
+  padding: 10px;
   }
 
 .marker {
@@ -34,10 +37,22 @@ html {
 }
 
 #users-show {
-  width: 200px;
+  width: 100px;
   height: 40px;
   position: absolute;
-  left: 50px;
+  right: 200px;
+  width: 100px;
+  border-spacing: 50px 50px;
+  margin-top: 10px;
+  margin-bottom: 50px;
+}
+
+#user-border {
+  border: 2px solid grey;
+  border-radius: 8px;
+  padding: 20px;
+  width: 300px;
+  height: 350px;
 }
 
 .logo {
@@ -48,10 +63,28 @@ html {
   height: 100px;
 }
 
+.restaurants-title {
+  white-space: nowrap;
+  width: 40px;
+  height: 40px;
+  margin-bottom: 30px;
+}
+
+#restaurant-lookup {
+  width: 200px;
+  height: 40px;
+  right: 600px;
+  position: absolute;
+  padding: 30px;
+  margin-top: 350px;
+}
+
 .restaurant-border {
   border: 2px solid grey;
-  border-radius: 5px;
+  border-radius: 10px;
   padding: 10px;
+  border-width: 2px 2px;
+  width: 700px;
 }
 
 .trips-border {

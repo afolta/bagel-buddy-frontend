@@ -16,22 +16,24 @@ export function UserShow(props) {
         <img src="/src/assets/map-location-dot-solid.svg" alt="" className="user-location" />
       </h2>
       <form onSubmit={handleSubmit}>
-        <div>
-          Address: <input defaultValue={props.user.address} name="address" className="form-control" type="text" />
+        <div id="user-border">
+          <div>
+            Address: <input defaultValue={props.user.address} name="address" className="form-control" type="text" />
+          </div>
+          <div>
+            City: <input defaultValue={props.user.city} name="city" className="form-control" type="text" />
+          </div>
+          <div>
+            State: <input defaultValue={props.user.state} name="state" className="form-control" type="text" />
+          </div>
+          <div>
+            Zip: <input defaultValue={props.user.zip} name="zip" className="form-control" type="text" />
+          </div>
+          <br></br>
+          <button class="btn btn-success" type="submit">
+            Update Address
+          </button>
         </div>
-        <div>
-          City: <input defaultValue={props.user.city} name="city" className="form-control" type="text" />
-        </div>
-        <div>
-          State: <input defaultValue={props.user.state} name="state" className="form-control" type="text" />
-        </div>
-        <div>
-          Zip: <input defaultValue={props.user.zip} name="zip" className="form-control" type="text" />
-        </div>
-        <br></br>
-        <button class="btn btn-success" type="submit">
-          Update Address
-        </button>
       </form>
     </div>
   );

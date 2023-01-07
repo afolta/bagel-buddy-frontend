@@ -1,7 +1,9 @@
 export function RestaurantLookup(props) {
   return (
     <div id="restaurant-lookup">
-      <h1>Bagel Shops</h1>
+      <h1 className="restaurants-title">
+        Bagel Shops <img src="/src/assets/shop-solid.svg" alt="" />
+      </h1>
       {props.restaurants.map((restaurant) => (
         <div key={restaurant.place_id} className="restaurant">
           <div className="restaurant-border">

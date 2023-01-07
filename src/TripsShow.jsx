@@ -9,7 +9,7 @@ const handleCreateTrip = (event) => {
   console.log(params);
   axios
     .post("http://localhost:3000/trips", {
-      notes: "Broly named for a reason.",
+      notes: params,
       user_id: localStorage.getItem("user_id"),
       restaurant_id: 1,
       place_id: localStorage.getItem("place_id"), // Need to dynamically set this
