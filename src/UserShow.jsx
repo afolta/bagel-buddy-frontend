@@ -11,7 +11,7 @@ export function UserShow(props) {
   return (
     <div id="users-show">
       <div key={props.user.id} className="users"></div>
-      <h2>
+      <h2 className="user-title">
         {props.user.name}'s Location{" "}
         <img src="/src/assets/map-location-dot-solid.svg" alt="" className="user-location" />
       </h2>
