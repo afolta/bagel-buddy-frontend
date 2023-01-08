@@ -1,9 +1,13 @@
 html {
   scroll-behavior: smooth;
+   height: 100vh;
+  overflow: scroll;
 }
 
 #root {
   background-image: url(./assets/memphis-mini.png);
+  height: 100vh;
+  overflow: scroll;
 }
 
 #title {
@@ -43,7 +47,6 @@ html {
 .user-location {
   width: 40px;
   height: 40px;
- 
 }
 
 .user-title {
@@ -78,17 +81,20 @@ html {
 #reviews {
   width: 100px;
   height: 125px;
+  margin-right: 10px;
+  /* display: flex; */
 }
 
 #website {
-  position: absolute;
+  /* display: flex; */
   left: 200px;
   width: 100px;
   height: 125px;
+  margin-right: 10px;
 }
 
 #notes{
-  position: absolute;
+  /* display: flex; */
   left: 600px;
   width: 100px;
   height: 125px;
@@ -107,20 +113,33 @@ html {
 }
 
 #restaurant-lookup {
-  width: 200px;
-  height: 40px;
-  right: 600px;
   position: absolute;
   padding: 30px;
   margin-top: 350px;
 }
 
-.restaurant-border {
+/* .restaurant-border {
   border: 2px solid grey;
   border-radius: 10px;
   padding: 10px;
   border-width: 2px 2px;
   width: 700px;
+} */
+
+.item-container {
+  display: flex;
+  /* justify-content: center; */
+  flex-wrap: wrap;
+  width: 1300px;
+  gap: 1em;
+}
+.card {
+  text-align: center;
+  padding: 10px;
+  width: 400px;
+  border-radius: 5px;
+  padding: 1em;
+  box-shadow: rgba(99, 99, 99, 0.2) 0px 2px 8px 0px;
 }
 
 .trips-border {

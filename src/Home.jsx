@@ -152,7 +152,7 @@ export function Home() {
   };
 
   return (
-    <div>
+    <div className="home-page">
       <h1 id="title">
         {" "}
         Welc
