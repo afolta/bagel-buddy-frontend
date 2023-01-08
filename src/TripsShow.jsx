@@ -1,5 +1,4 @@
 import axios from "axios";
-import { useState } from "react";
 
 const handleCreateTrip = (event) => {
   event.preventDefault();
@@ -37,7 +36,9 @@ export function TripsShow(props) {
           <div className="restaurant-border">
             <p>Date: {trip.friendly_date}</p>
             <p>{trip.notes}</p>
-            <button onClick={() => handleClick(trip)}>Delete Note</button>
+            <button className="btn btn-danger mt-3" onClick={() => handleClick(trip)}>
+              Delete Note
+            </button>
           </div>
         </div>
       ))}

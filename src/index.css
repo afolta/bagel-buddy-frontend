@@ -31,6 +31,15 @@ html {
   cursor: pointer;
 }
 
+.user-marker {
+  background-image: url('/src/assets/street-view-solid.svg');
+  background-size: cover;
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;
+  cursor: pointer;
+}
+
 .user-location {
   width: 40px;
   height: 40px;
@@ -69,6 +78,23 @@ html {
   margin-right: 50px;
 }
 
+#reviews {
+  width: 100px;
+  height: 125px;
+}
+
+#notes{
+  position: absolute;
+  left: 600px;
+  width: 100px;
+  height: 125px;
+}
+
+.notes-icon {
+  width: 50px;
+  height: 50px;
+}
+
 .restaurants-title {
   white-space: nowrap;
   width: 40px;
@@ -97,11 +123,4 @@ html {
   border: 2px solid grey;
   border-radius: 5px;
   padding: 10px;
-}
-
-#notes{
-  position: absolute;
-  left: 300px;
-  width: 90px;
-  height: 90px;
 }

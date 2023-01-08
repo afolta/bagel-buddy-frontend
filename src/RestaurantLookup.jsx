@@ -11,11 +11,12 @@ export function RestaurantLookup(props) {
             <p>Address: {restaurant.address}</p>
             <p>Distance: {restaurant.distance} miles</p>
             <p>Review: {restaurant.rating}</p>
-            <button className="btn btn-secondary" onClick={() => props.onSelectRestaurant(restaurant)}>
+            <button id="reviews" className="btn btn-secondary" onClick={() => props.onSelectRestaurant(restaurant)}>
               <img src="/src/assets/message-draw.svg" alt="" />
               Reviews
             </button>
             <button id="notes" class="btn btn-info" onClick={() => props.onSelectTrip(restaurant)}>
+              <img className="notes-icon" src="/src/assets/note-sticky-regular.svg" alt="" />
               Notes
             </button>
           </div>

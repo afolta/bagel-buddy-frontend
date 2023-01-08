@@ -78,18 +78,32 @@ export function Home() {
         });
 
         response.data.forEach((place) => {
-          let popup = new mapboxgl.Popup({ offset: 30 }).setHTML(
+          let restaurantPopup = new mapboxgl.Popup({ offset: 30 }).setHTML(
             `<h2>${place.name}</h3>
             <p>Address: ${place.address}</p>
             <p>Distance: ${place.distance}</p>`
           );
 
+          let userPopup = new mapboxgl.Popup({ offset: 30 }).setHTML(
+            `<h2>${bagelLover.name}</h3>
+            <p>Address: ${bagelLover.address}</p>`
+          );
+
           const el = document.createElement("div");
           el.className = "marker";
 
-          let marker = new mapboxgl.Marker(el).setLngLat([place.longitude, place.latitude]).setPopup(popup);
+          let restaurantMarker = new mapboxgl.Marker(el)
+            .setLngLat([place.longitude, place.latitude])
+            .setPopup(restaurantPopup);
+          restaurantMarker.addTo(map);
 
-          marker.addTo(map);
+          const userElement = document.createElement("div");
+          userElement.className = "user-marker";
+
+          let userMarker = new mapboxgl.Marker(userElement)
+            .setLngLat([bagelLover.longitude, bagelLover.latitude])
+            .setPopup(userPopup);
+          userMarker.addTo(map);
         });
       })
       .catch((error) => {});
