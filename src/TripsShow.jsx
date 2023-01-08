@@ -1,5 +1,5 @@
 import axios from "axios";
-import { Home } from "./Home";
+import { useState } from "react";
 
 const handleCreateTrip = (event) => {
   event.preventDefault();
@@ -19,6 +19,16 @@ const handleCreateTrip = (event) => {
     .then((window.location.href = "/"));
 };
 
+const handleClick = (trip) => {
+  console.log(trip);
+  handleDestroyTrip(trip);
+};
+
+const handleDestroyTrip = (trip) => {
+  console.log(trip);
+  axios.delete("http://localhost:3000/trips/" + trip.id).then((window.location.href = "/"));
+};
+
 export function TripsShow(props) {
   return (
     <div>
@@ -27,6 +37,7 @@ export function TripsShow(props) {
           <div className="restaurant-border">
             <p>Date: {trip.friendly_date}</p>
             <p>{trip.notes}</p>
+            <button onClick={() => handleClick(trip)}>Delete Note</button>
           </div>
         </div>
       ))}

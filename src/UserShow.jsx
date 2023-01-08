@@ -1,5 +1,3 @@
-import { useEffect } from "react";
-
 export function UserShow(props) {
   const handleSubmit = (event) => {
     event.preventDefault();
