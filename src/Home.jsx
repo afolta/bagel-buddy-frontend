@@ -57,6 +57,22 @@ export function Home() {
       .catch((error) => {});
   };
 
+  const handleShowWebsite = (restaurant) => {
+    setCurrentRestaurant(restaurant);
+
+    axios
+      .post("http://localhost:3000/reviews", {
+        place_id: restaurant.place_id,
+      })
+      .then((response) => {
+        setCurrentReviews(response.data);
+        setCurrentReviews(response.data);
+        console.log(response.data[0]);
+        window.open(`${response.data[0].website}`, "_blank");
+      })
+      .catch((error) => {});
+  };
+
   const handleRestaurantLookup = (bagelLover) => {
     console.log(bagelLover);
     axios
@@ -137,8 +153,12 @@ export function Home() {
 
   return (
     <div>
-      <img src="/src/assets/bagel.png" alt="" className="logo" />
-      <h1 id="title"> Welcome to Bagel Buddy!</h1>
+      <h1 id="title">
+        {" "}
+        Welc
+        <img src="/src/assets/bagel.png" alt="" className="logo" />
+        me to Bagel Buddy!
+      </h1>
       <div id="users-show">
         <UserShow user={user} onUpdateLocation={handleUpdateLocation} />
       </div>
@@ -148,6 +168,7 @@ export function Home() {
           restaurants={restaurants}
           user={user}
           onSelectRestaurant={handleShowRestaurant}
+          onSelectWebsite={handleShowWebsite}
           onSelectTrip={handleShowTrips}
         />
       </div>

@@ -15,6 +15,10 @@ export function RestaurantLookup(props) {
               <img src="/src/assets/message-draw.svg" alt="" />
               Reviews
             </button>
+            <button id="website" class="btn btn-outline-dark" onClick={() => props.onSelectWebsite(restaurant)}>
+              <img src="/src/assets/link-solid.svg" alt="" />
+              Website
+            </button>
             <button id="notes" class="btn btn-info" onClick={() => props.onSelectTrip(restaurant)}>
               <img className="notes-icon" src="/src/assets/note-sticky-regular.svg" alt="" />
               Notes
