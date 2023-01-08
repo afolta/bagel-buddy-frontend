@@ -3,15 +3,20 @@ import { Home } from "./Home";
 
 const handleCreateTrip = (event) => {
   event.preventDefault();
-  const params = new FormData(event.target);
+  let params = new FormData(event.target);
   console.log(params);
-  const config = {
-    user_id: localStorage.getItem("user_id"),
-    restaurant_id: 1,
-    place_id: localStorage.getItem("place_id"),
-  };
 
-  axios.post("http://localhost:3000/trips", params, config).then((window.location.href = "/"));
+  params.append("restaurant_id", 1);
+  params.append("place_id", localStorage.getItem("place_id"));
+
+  axios
+    .post("http://localhost:3000/trips", params, {
+      headers: {
+        // Overwrite Axios's automatically set Content-Type
+        "Content-Type": "application/json",
+      },
+    })
+    .then((window.location.href = "/"));
 };
 
 export function TripsShow(props) {
