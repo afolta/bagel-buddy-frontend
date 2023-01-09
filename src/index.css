@@ -10,6 +10,16 @@ html {
   overflow: scroll;
 }
 
+.nav-link {
+  text-align: right;
+  margin-right: 30px;
+}
+
+.logout-link {
+  width: 50px;
+  height: 50px;
+}
+
 #title {
   text-align: center;
 }
@@ -117,14 +127,6 @@ html {
   padding: 30px;
   margin-top: 350px;
 }
-
-/* .restaurant-border {
-  border: 2px solid grey;
-  border-radius: 10px;
-  padding: 10px;
-  border-width: 2px 2px;
-  width: 700px;
-} */
 
 .item-container {
   display: flex;

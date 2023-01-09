@@ -11,7 +11,7 @@ export function LogoutLink() {
 
   return (
     <a className="nav-link" href="#" onClick={handleClick}>
-      Logout
+      Logout <img className="logout-link" src="/src/assets/arrow-right-from-bracket-solid.svg" alt="" />
     </a>
   );
 }
