@@ -6,6 +6,7 @@ import mapboxgl from "mapbox-gl";
 import { Modal } from "./Modal";
 import { ReviewsShow } from "./ReviewsShow";
 import { TripsShow } from "./TripsShow";
+import { Suggestion } from "./Suggestion";
 
 export function Home() {
   const [user, setUser] = useState({});
@@ -15,6 +16,7 @@ export function Home() {
   const [currentTrips, setCurrentTrips] = useState({});
   const [isReviewShowModalVisible, setIsReviewShowModalVisible] = useState(false);
   const [isTripShowModalVisible, setIsTripShowModalVisible] = useState(false);
+  const [isSuggestionModalVisible, setIsSuggestionModalVisible] = useState(false);
 
   const handleUserShow = () => {
     const userId = localStorage.getItem("user_id");
@@ -151,6 +153,14 @@ export function Home() {
     setIsTripShowModalVisible(false);
   };
 
+  const handleHideSuggestion = () => {
+    setIsSuggestionModalVisible(false);
+  };
+
+  const handleShowSuggestion = () => {
+    setIsSuggestionModalVisible(true);
+  };
+
   return (
     <div className="home-page">
       <h1 id="title">
@@ -162,6 +172,12 @@ export function Home() {
       <div id="users-show">
         <UserShow user={user} onUpdateLocation={handleUpdateLocation} />
       </div>
+      <Modal show={isSuggestionModalVisible} onClose={handleHideSuggestion}>
+        <div id="suggestion">
+          <Suggestion onSelectSuggestion={handleShowSuggestion} />
+        </div>
+      </Modal>
+
       <div id="map"></div>
       <div id="restaurant-lookup">
         <RestaurantLookup
@@ -172,6 +188,7 @@ export function Home() {
           onSelectTrip={handleShowTrips}
         />
       </div>
+
       <Modal show={isReviewShowModalVisible} onClose={handleHideRestaurant}>
         <ReviewsShow reviews={currentReviews} />
       </Modal>

@@ -26,11 +26,9 @@ html {
 
 #map {
   height: 700px;
-  width: 800px;
+  width: 900px;
   position: absolute;
   left: 30px;
-  /* margin-left: auto;
-  margin-right: auto; */
   border: 2px solid black;
   border-radius: 5px;
   padding: 10px;
@@ -80,6 +78,15 @@ html {
   padding: 20px;
   width: 300px;
   height: 350px;
+}
+
+#suggestion {
+  width: 150px;
+  height: 20px;
+  position: absolute;
+  right: 150px;
+  margin-top: 250px;
+  border-spacing: 50px 50px;
 }
 
 .logo {
