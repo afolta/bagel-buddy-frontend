@@ -16,11 +16,8 @@ A React application that allows users to see bagel shops within a given area.
 ```
 cd bagel-buddy-frontend
 npm install
-npm run dev
-```
-- In a new terminal tab, install the axios library:
-```
 npm install axios --save
+npm run dev
 ```
 
 - To login, navigate to the browser: http://localhost:5173/login
