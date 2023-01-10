@@ -16,7 +16,6 @@ A React application that allows users to see bagel shops within a given area.
 ```
 cd bagel-buddy-frontend
 npm install
-npm install axios --save
 npm run dev
 ```
 
