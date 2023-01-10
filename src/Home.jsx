@@ -83,7 +83,7 @@ export function Home() {
       .then((response) => {
         console.log(response.data);
         setRestaurants(response.data);
-
+        // From Mapbox documentation: https://docs.mapbox.com/help/tutorials/use-mapbox-gl-js-with-react/
         mapboxgl.accessToken =
           "pk.eyJ1IjoiZm9sdGFhcyIsImEiOiJjajBiNTRwZXEwMnVlMndvMjZnMWYyZzkxIn0.wMplMNqPeI1kNVVfR9RvVg";
         const map = new mapboxgl.Map({
